@@ -15,7 +15,7 @@ Cada tarea tendra un id, el metodo de entrega sera el siguiente:
 
 /*
 	Tarea Corta 2
-	Estudiante: [Your Name]
+	Estudiante: [JUAN DAVID VILLALOBOS CHACON]
 	
 	Enunciado:
 	Escriba una funcion que le de vuelta a una lista, debe imprimir primero la lista original, y luego imprimir la lista invertida.
