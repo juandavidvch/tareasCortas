@@ -38,32 +38,29 @@ namespace Tarea1
     {
         static void Main(string[] args)
         {
-            int num = 0; //controla la cantidad de elementos a ingresar
-            int max = 0; //controla el numero maximo a utilizarse fde manera random (funciona como limite)
+            int num = 0;                        //controla la cantidad de elementos a ingresar
+            int max = 0;                        //controla el numero maximo a utilizarse fde manera random (funciona como limite)
             Console.Write("Cuantos numeros va a incluir en la lista?: ");
             num = Convert.ToInt16(Console.ReadLine());
             Console.Write("Rango maximo de numeros? Hasta (0-999999): ");
             max = Convert.ToInt16(Console.ReadLine());
-
+            List<int> list = new List<int>();
+            Random rdm = new Random();          //metodo random que sirve para generar numeros aleatorios
+            int i = 0;                          //controla el ciclo de llenado de la lista
+            do
+            {
+                list.Add(rdm.Next(max));        //carga la lista con numeros aleatorios HASTA el que se pidio como tope
+                i++;                            //contador del ciclo
+            } while (i != num);                 //HASTA que sean iguales la cant de elementos a incluir y el contador, el ciclo termina
             Program calc = new Program();
-
-            System.Console.Write("Numero mayor: {0}", calc.returnHigher(num,max)); //llama metodo que llena lista y analiza numero mayor, 
+            System.Console.Write("Numero mayor: {0}", calc.returnHigher(list)); //llama metodo que llena lista y analiza numero mayor, 
             //hace envio de la cant de elementos y el numero maximo hasta que podria llegar (no significa que ese sea el maximo)
             Console.ReadKey();
         }
 
-        public int returnHigher(int variable, int maximum)
+        public int returnHigher(List<int> list)
         {
-            List<int> list = new List<int>();
-            Random rdm = new Random();          //metodo random que sirve para generar numeros aleatorios
-            int i = 0;                          //controla el ciclo de llenado de la lista
             int high = 0;                       //almacena el elemento mas grande de la lista
-            do
-            {
-                list.Add(rdm.Next(maximum));    //carga la lista con numeros aleatorios HASTA el que se pidio como tope
-                i++;                            //contador del ciclo
-            } while (i != variable);            //HASTA que sean iguales la cant de elementos a incluir y el contador, el ciclo termina
-
             foreach (int element in list)       //recorre la lista
             {
                 if (element > high)             //evalua el elemento actual contra el "mayor"
@@ -73,4 +70,3 @@ namespace Tarea1
         }
     }
 }
-
